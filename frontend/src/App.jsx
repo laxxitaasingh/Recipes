@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import Header from './component/header'
+import Header from './component/header/header'
+import MediaCard from './component/cards/cards'
 import './App.css'
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <>
     <Header></Header>
       <h1>Recipes</h1>
+      <MediaCard></MediaCard>
     </>
   )
 }

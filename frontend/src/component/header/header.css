@@ -1,0 +1,10 @@
+.heading{
+    background-color: rgb(150, 150, 211);
+    height:100px
+}
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+    width: 95%;
+    margin-left: 10px;
+}

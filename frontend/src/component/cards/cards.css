@@ -1,0 +1,7 @@
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px; /* Adjust the gap between cards as needed */
+    padding: 16px; /* Optional padding around the grid */
+  }
+  
