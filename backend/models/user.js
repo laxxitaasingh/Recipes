@@ -1,22 +1,18 @@
-const mongoose = require('mongoose')
+const {MongoClient} = require('mongodb')
 
-const userSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    },
-    roles: [{
-        type: String,
-        default: "Employee"
-    }],
-    active: {
-        type: Boolean,
-        default: true
-    }
-})
+let dbConnection
 
-module.exports = mongoose.model('User', userSchema)
+mondule.exports={
+    connectToDb: (cb)=>{
+        MongoClient.connect('mongodb://localhost:27017/Recipes')
+        .then((client)=>{
+            dbConnection=client.db()
+            return cb()
+        })
+        .catch(err=>{
+            console.log(err)
+            return cb(err)
+        })
+    },
+    getDb:()=>{}
+}
