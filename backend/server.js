@@ -1,20 +1,36 @@
-require('dotenv').config()
+
 const express = require('express')
 const app = express()
-
-const mongoose = require('mongoose')
+const {connectToDb,getDb} =require('./models/user')
 const PORT = process.env.PORT || 3500
 
-console.log(process.env.NODE_ENV)
 
-app.listen(PORT,()=>{
-    console.log('app listening on port',PORT)
+//db connection
+
+let db
+
+connectToDb((err)=>{
+    if(!err){
+        app.listen(PORT,()=>{
+            console.log('app listening on port',PORT)
+        })
+    }
+    db = getDb()
 })
+
+
+
 
 
 app.get('/Recipes',(req,res)=>{
-    res.json({mssg:"Welcome to the api"})
+    db.collection('users')
+    .find()
+    .toArray()
+    .then(users => {
+        res.status(200).json({ mssg: "Welcome to the api", users });
+    })
+    .catch(error => {
+        console.error(error);
+        res.status(500).json({ error: "An error occurred while fetching the data" });
+    });
 })
-
-
-

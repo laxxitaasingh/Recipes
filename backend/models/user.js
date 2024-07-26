@@ -2,7 +2,7 @@ const {MongoClient} = require('mongodb')
 
 let dbConnection
 
-mondule.exports={
+module.exports={
     connectToDb: (cb)=>{
         MongoClient.connect('mongodb://localhost:27017/Recipes')
         .then((client)=>{
@@ -16,3 +16,4 @@ mondule.exports={
     },
     getDb:()=>{}
 }
+
