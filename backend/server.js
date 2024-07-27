@@ -22,7 +22,7 @@ connectToDb((err)=>{
 
 
 
-app.get('/Recipes',(req,res)=>{
+app.get('/Recipe',(req,res)=>{
     db.collection('users')
     .find()
     .toArray()
