@@ -3,34 +3,45 @@ const express = require('express')
 const app = express()
 const {connectToDb,getDb} =require('./models/user')
 const PORT = process.env.PORT || 3500
+const {MongoClient} = require('mongodb')
+const mongoose = require('mongoose')
+
+const host= 'http://127.0.0.1'+PORT
 
 
 //db connection
 
 let db
 
-connectToDb((err)=>{
-    if(!err){
-        app.listen(PORT,()=>{
-            console.log('app listening on port',PORT)
-        })
+app.listen(PORT,()=>{
+    console.log('app listening on port',PORT)
+})
+
+
+const connectDb = async () => {
+    try {
+      await mongoose.connect('mongodb+srv://laxitasingh2112:hibo12345@cluster0.ratpguf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+      console.log('MongoDB connected');
+    } catch (error) {
+      console.error('Error connecting to MongoDB:', error);
+      process.exit(1);
     }
-    db = getDb()
+  };
+  
+  connectDb();
+
+connectDb()
+mongoose.connection.once('open',()=>{
+    console.log('connected to db')
 })
 
 
 
 
-
 app.get('/Recipe',(req,res)=>{
-    db.collection('users')
-    .find()
-    .toArray()
-    .then(users => {
-        res.status(200).json({ mssg: "Welcome to the api", users });
-    })
-    .catch(error => {
-        console.error(error);
-        res.status(500).json({ error: "An error occurred while fetching the data" });
-    });
+    res.send('HIIII');
+   
 })
