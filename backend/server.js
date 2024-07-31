@@ -41,8 +41,11 @@ async function run() {
     const movies = database.collection("recipes");
     const query = { name: "Pudina & Dhania Chutney" };
     const movie = await movies.findOne(query);
-    console.log(movie);
-    return movie
+    const documents = await movies.find({}).toArray();
+    console.log('Found documents:', documents);
+    // console.log(movie);
+    return documents
+    // return movie
   } catch(err){
     console.log(err)
   }

@@ -12,7 +12,7 @@ function App() {
     <>
     <Header></Header>
       <h1>Recipes</h1>
-      <Data></Data>
+      {/* <Data></Data> */}
       <h1>HELLOOOOOOO</h1>
       <MediaCard></MediaCard>
     </>

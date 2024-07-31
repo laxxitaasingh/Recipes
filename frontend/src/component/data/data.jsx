@@ -18,7 +18,7 @@ function Data() {
       .then((response) => {
         setData(response.data); // Assuming response.data contains the array of items
         setLoading(false);
-        console.log(response.data.ingredients)
+        // console.log(response.data.ingredients)
         // console.log(JSON.parse(response.data.ingredients))
         console.log('dddd', response.data)
       })
