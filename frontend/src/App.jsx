@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Header from './component/header/header'
-import Data from './component/data/data'
+import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
+import ItemDetail from './component/itemDetail/item'
 import MediaCard from './component/cards/cards'
 import './App.css'
 
@@ -10,11 +11,14 @@ function App() {
   return (
     
     <>
-    <Header></Header>
+     <Router>
+      <Header />
       <h1>Recipes</h1>
-      {/* <Data></Data> */}
-      <h1>HELLOOOOOOO</h1>
-      <MediaCard></MediaCard>
+      <Routes>
+        <Route path="/" element={<MediaCard />} />
+        <Route path="/info/:name" element={<ItemDetail />} />
+      </Routes>
+    </Router>
     </>
   )
 }
