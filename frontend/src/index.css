@@ -1,5 +1,5 @@
 :root {
-  background-color: pink;
+  background-color: rgb(123, 192, 135);
 }
 @tailwind base;
 @tailwind components;
