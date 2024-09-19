@@ -1,26 +1,35 @@
-import { useState } from 'react'
-import Header from './component/header/header'
-import { BrowserRouter as Router, Route,Routes } from 'react-router-dom';
-import ItemDetail from './component/itemDetail/item'
-import MediaCard from './component/cards/cards'
-import './App.css'
+import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Header from './component/header/header';
+import ItemDetail from './component/itemDetail/item';
+import MediaCard from './component/cards/cards';
+import Signup from './component/signup/signup';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    
-    <>
-     <Router>
-      <Header />
-      <h1>Recipes</h1>
+    <Router>
+      <ConditionalHeader />
       <Routes>
         <Route path="/" element={<MediaCard />} />
         <Route path="/info/:name" element={<ItemDetail />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>
-    </>
-  )
+  );
 }
 
-export default App
+// Component to conditionally render the Header
+function ConditionalHeader() {
+  const location = useLocation(); // Get the current location
+
+  // Check if the current path is '/signup'. If true, do not render the header.
+  const hideHeader = location.pathname === '/signup';
+
+  // Only render the Header if `hideHeader` is false
+  return !hideHeader && <Header />;
+}
+
+export default App;
