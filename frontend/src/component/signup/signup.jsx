@@ -41,24 +41,29 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
     if (validate()) {
       try {
-        const response = await axios.post('http://localhost:3000/api/users/signup', {
+        const response = await axios.post('http://localhost:3000/signup', {
+          name: formValues.name,
           email: formValues.email,
           password: formValues.password,
         });
-
+  
         if (response.data.success) {
           setSnackbarMessage('Registered successfully');
         }
       } catch (error) {
+        // Handling error response with a fallback message
         setSnackbarMessage(
           error.response?.data?.message || 'Registration failed'
         );
       }
+  
       setSnackbarOpen(true);
     }
   };
+  
 
   return (
     <div className="container">
