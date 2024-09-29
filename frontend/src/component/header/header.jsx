@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import MyImage from '/home/laxita/Recipes/frontend/src/assets/whisk.jpeg'; // adjust the path as needed
 import './header.css';
 
 function Header() {
@@ -18,7 +19,9 @@ function Header() {
   return (
     <>
       <div className="heading">
-        <h1>Header</h1>
+        <div className='imge'>
+        <img src={MyImage} alt="Description of the image" />
+        </div>
         <div className="buttons">
           <Button
             variant="contained"

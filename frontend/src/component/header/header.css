@@ -1,12 +1,12 @@
 
 .heading {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
     padding: 20px;
     background-color: rgb(163, 189, 197);
-    height:100px
+    height:50%
   }
   
   .buttons {
@@ -18,3 +18,10 @@
     margin-left: 10px;
   }
   
+  .imge{
+    align-items: left;
+    width: 150px;
+    border-radius: 10px;
+    float: left;
+    text-align: left;
+  }

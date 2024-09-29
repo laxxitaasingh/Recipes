@@ -4,6 +4,7 @@ import Header from './component/header/header';
 import ItemDetail from './component/itemDetail/item';
 import MediaCard from './component/cards/cards';
 import Signup from './component/signup/signup';
+import Login from './component/login/login';
 import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<MediaCard />} />
         <Route path="/info/:name" element={<ItemDetail />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );
@@ -26,7 +28,7 @@ function ConditionalHeader() {
   const location = useLocation(); // Get the current location
 
   // Check if the current path is '/signup'. If true, do not render the header.
-  const hideHeader = location.pathname === '/signup';
+  const hideHeader = location.pathname === '/signup' ||location.pathname === '/login' ;
 
   // Only render the Header if `hideHeader` is false
   return !hideHeader && <Header />;

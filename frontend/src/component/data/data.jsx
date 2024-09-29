@@ -29,12 +29,12 @@ function Data() {
   }, []); // Empty dependency array means this effect runs once when the component mounts
 
   if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (error) return <div className="main">Error: {error.message}</div>;
   
 
 
   return (
-    <div>
+    <div className="main">
       <h1>Fetched Data</h1>
       <div key={data._id}>
         <h2>{data.name}</h2>

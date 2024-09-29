@@ -1,0 +1,15 @@
+.container{
+    background-color: #e1c3c3;
+    margin-top: 100px;
+}
+
+.root{
+    background: rgb(180, 180, 180);
+}
+
+body {
+    background-color: #bbd3eb; /* Light grey-blue background */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }

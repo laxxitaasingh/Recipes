@@ -1,7 +1,7 @@
 :root {
   /* background-color: rgba(160, 240, 222, 0.747);
    */
-   background-color: rgb(243, 207, 207);
+   
 }
 @tailwind base;
 @tailwind components;
