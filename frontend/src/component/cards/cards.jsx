@@ -1,7 +1,4 @@
-
-
 import axios from "axios";
-import './cards.css';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -10,18 +7,20 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import img from '/home/laxita/Recipes/frontend/src/assets/pudhina.jpg'
+
 
 function MediaCard({ item }) {
   const navigate = useNavigate();
-
   const handleLearnMore = () => {
     navigate(`/info/${item.name}`);
   };
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card className="max-w-sm">
       <CardMedia
-        sx={{ height: 140 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
+        className="h-36"
+        image = {`/assets/${item.path}`}
         title="green iguana"
       />
       <CardContent>
@@ -46,14 +45,12 @@ function MediaCardList() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // API endpoint
     const apiUrl = "http://localhost:3000/collections";
 
-    // Fetch data from the API using axios
     axios
       .get(apiUrl)
       .then((response) => {
-        setData(response.data); // Assuming response.data contains the array of items
+        setData(response.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -71,7 +68,7 @@ function MediaCardList() {
   }
 
   return (
-    <div className="card-container">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 bg-red-100">
       {data.map((item, index) => (
         <MediaCard key={index} item={item} />
       ))}

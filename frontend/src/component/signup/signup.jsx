@@ -57,7 +57,10 @@ const navigate = useNavigate();
         });
   
         if (response.data.success) {
-          setSnackbarMessage('Registered successfully');
+          setTimeout(()=>{
+            setSnackbarMessage('Registered successfully');
+          },1000)
+          
           navigate('/login')
         }
       } catch (error) {
